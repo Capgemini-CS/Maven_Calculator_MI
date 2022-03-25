@@ -1,6 +1,7 @@
 package com.capgemini.main;
 
 import com.capgemini.calculator.CalculatorLogic;
+import com.capgemini.exception.ExceptionWhenDividingBy0;
 import com.capgemini.exception.ExceptionWhenKeyIsInvalid;
 import com.capgemini.exception.ExceptionWhenOperatorIsDifferent;
 import com.capgemini.input.Key;
@@ -8,7 +9,7 @@ import com.capgemini.input.Operator;
 import com.capgemini.screen.OutputScreen;
 
 public class ProgramMainCalculator {
-    public static void main(String[] args) throws ExceptionWhenKeyIsInvalid, ExceptionWhenOperatorIsDifferent {
+    public static void main(String[] args) throws ExceptionWhenKeyIsInvalid, ExceptionWhenOperatorIsDifferent, ExceptionWhenDividingBy0 {
         CalculatorLogic calculator = new CalculatorLogic();
 
         Key firstNumber = new Key();

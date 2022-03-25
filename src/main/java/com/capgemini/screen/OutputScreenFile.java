@@ -1,6 +1,7 @@
 package com.capgemini.screen;
 
 import com.capgemini.calculator.CalculatorLogic;
+import com.capgemini.exception.ExceptionWhenDividingBy0;
 import com.capgemini.exception.ExceptionWhenFileIsIncorrect;
 import com.capgemini.exception.ExceptionWhenKeyIsInvalid;
 import com.capgemini.exception.ExceptionWhenOperatorIsDifferent;
@@ -21,7 +22,7 @@ public class OutputScreenFile extends CalculatorLogic implements IWriteAndReadTx
     Key secondNumber = new Key();
     Operator operator = new Operator();
 
-    public void showEquationUsingFile() throws ExceptionWhenKeyIsInvalid, ExceptionWhenOperatorIsDifferent, ExceptionWhenFileIsIncorrect {
+    public void showEquationUsingFile() throws ExceptionWhenKeyIsInvalid, ExceptionWhenOperatorIsDifferent, ExceptionWhenFileIsIncorrect, ExceptionWhenDividingBy0 {
         System.out.println("\n \t\t 1. Save in txt file");
         System.out.println("\n \t\t 2. Read from txt file");
         System.out.println("\n \t Choose 1 or 2 ");
@@ -51,7 +52,7 @@ public class OutputScreenFile extends CalculatorLogic implements IWriteAndReadTx
             result = executeEquationWithNumbers(firstNumberOfEquation, operator, secondNumberOfEquation);
             printWriter.println(result);
             printWriter.close();
-        } catch (FileNotFoundException | ExceptionWhenOperatorIsDifferent e) {
+        } catch (FileNotFoundException | ExceptionWhenOperatorIsDifferent | ExceptionWhenDividingBy0 e) {
             Logger.debug("hi from here");
             throw new ExceptionWhenFileIsIncorrect("Something went wrong with the file operation.");
         }
@@ -59,7 +60,7 @@ public class OutputScreenFile extends CalculatorLogic implements IWriteAndReadTx
     }
 
     @Override
-    public void readNumbersFromTxtFile() throws ExceptionWhenOperatorIsDifferent, ExceptionWhenFileIsIncorrect {
+    public void readNumbersFromTxtFile() throws ExceptionWhenOperatorIsDifferent, ExceptionWhenFileIsIncorrect, ExceptionWhenDividingBy0 {
         String lineWithValue;
         int firstNumberOfEquation;
         String operator;

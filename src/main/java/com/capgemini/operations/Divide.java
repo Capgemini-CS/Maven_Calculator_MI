@@ -1,23 +1,25 @@
 package com.capgemini.operations;
 
-import com.capgemini.exception.ExceptionWhenOperatorIsDifferent;
+import com.capgemini.exception.ExceptionWhenDividingBy0;
 import com.capgemini.validation.IValidationNumber;
 import org.tinylog.Logger;
 
 public class Divide implements IEquations, IValidationNumber {
 
     @Override
-    public int executeEquationWithNumbers(int firstNumberOfEquation, String operator, int secondNumberOfEquation) throws ExceptionWhenOperatorIsDifferent {
-        if(checkValidationNumber(secondNumberOfEquation)){
+    public int executeEquationWithNumbers(int firstNumberOfEquation, String operator, int secondNumberOfEquation) throws ExceptionWhenDividingBy0 {
+        if(!checkValidationNumber(secondNumberOfEquation)){
             Logger.warn("You can use only : /");
-            throw new ExceptionWhenOperatorIsDifferent("You can use only : /");
+            throw new ExceptionWhenDividingBy0("You can use only : / and you can't divide by 0.");
         }
         return firstNumberOfEquation / secondNumberOfEquation;
     }
 
     @Override
     public boolean checkValidationNumber(int number) {
-        Logger.error("Something went wrong");
-        return number == 0;
+        if(number == 0) {
+            Logger.error("Something went wrong");
+        }
+        return false;
     }
 }

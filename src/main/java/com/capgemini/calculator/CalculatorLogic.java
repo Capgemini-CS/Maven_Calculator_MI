@@ -1,5 +1,6 @@
 package com.capgemini.calculator;
 
+import com.capgemini.exception.ExceptionWhenDividingBy0;
 import com.capgemini.exception.ExceptionWhenOperatorIsDifferent;
 import com.capgemini.operations.*;
 import com.capgemini.validation.IValidationOperator;
@@ -15,7 +16,7 @@ public class CalculatorLogic implements IEquations, IValidationOperator {
     }
 
     @Override
-    public int executeEquationWithNumbers(int firstNumberOfEquation, String operator, int secondNumberOfEquation) throws ExceptionWhenOperatorIsDifferent {
+    public int executeEquationWithNumbers(int firstNumberOfEquation, String operator, int secondNumberOfEquation) throws ExceptionWhenOperatorIsDifferent, ExceptionWhenDividingBy0 {
         int resultOfEquation = 0;
         IEquations equation;
         if (checkIfOperatorIsCorrect(operator)) {
