@@ -19,7 +19,8 @@ public class Divide implements IEquations, IValidationNumber {
     public boolean checkValidationNumber(int number) {
         if(number == 0) {
             Logger.error("Something went wrong");
+            return false;
         }
-        return false;
+        return true;
     }
 }
