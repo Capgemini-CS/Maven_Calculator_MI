@@ -21,4 +21,5 @@ public class DivideTest {
     public void throwingErrorTest() {
         assertThrows(ExceptionWhenDividingBy0.class , () -> divide.executeEquationWithNumbers(9,"/",0));
     }
+
 }

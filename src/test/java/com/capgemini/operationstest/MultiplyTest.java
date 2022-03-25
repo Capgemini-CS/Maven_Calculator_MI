@@ -8,11 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MultiplyTest {
 
     Multiply multiply = new Multiply();
-
+//test
     @Test
     public void testDivideTwoNumbers() {
         int result = multiply.executeEquationWithNumbers(10,"*",20);
         assertEquals(200,result);
     }
-
 }
