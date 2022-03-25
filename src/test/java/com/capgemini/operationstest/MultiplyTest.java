@@ -4,7 +4,7 @@ import com.capgemini.operations.Multiply;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-//MultiplyTest
+
 public class MultiplyTest {
 
     Multiply multiply = new Multiply();
